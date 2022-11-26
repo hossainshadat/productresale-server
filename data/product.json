@@ -1,0 +1,71 @@
+[
+  {
+    "category_id": "01",
+    "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
+    "title": "Build Responsive Real-World Websites with HTML and CSS",
+    "location": { "number": 4.5, "badge": "Excellent" },
+    "resalePrice": 10,
+    "originalPrice": 488,
+    "yearsOfUse": 3,
+    "sellerName": "roni",
+    "post_date": "11/26/2022"
+  },
+  {
+    "category_id": "02",
+    "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
+    "title": "Build Responsive Real-World Websites with HTML and CSS",
+    "location": { "number": 4.5, "badge": "Excellent" },
+    "resalePrice": 10,
+    "originalPrice": 488,
+    "yearsOfUse": 4,
+    "sellerName": "shadat",
+    "post_date": "11/25/2022"
+  },
+
+  {
+    "category_id": "03",
+    "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
+    "title": "Build Responsive Real-World Websites with HTML and CSS",
+    "location": { "number": 4.5, "badge": "Excellent" },
+    "resalePrice": 10,
+    "originalPrice": 488,
+    "yearsOfUse": 2,
+    "sellerName": "shadat",
+    "post_date": "11/23/2022"
+  },
+  {
+    "category_id": "01",
+    "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
+    "title": "Build Responsive Real-World Websites with HTML and CSS",
+    "location": { "number": 4.5, "badge": "Excellent" },
+    "resalePrice": 10,
+    "originalPrice": 488,
+    "yearsOfUse": 1,
+    "sellerName": "shorif",
+    "post_date": "11/25/2022"
+  },
+
+  {
+    "category_id": "02",
+    "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
+    "title": "Build Responsive Real-World Websites with HTML and CSS",
+    "location": { "number": 4.5, "badge": "Excellent" },
+    "resalePrice": 10,
+    "originalPrice": 488,
+    "yearsOfUse": 5,
+    "sellerName": "shorif",
+    "post_date": "11/23/2022"
+  },
+
+  {
+    "category_id": "03",
+    "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
+    "title": "Build Responsive Real-World Websites with HTML and CSS",
+    "location": { "number": 4.5, "badge": "Excellent" },
+    "resalePrice": 10,
+    "originalPrice": 488,
+    "yearsOfUse": 2.5,
+    "sellerName": "roni",
+    "post_date": "11/24/2022"
+  }
+]
