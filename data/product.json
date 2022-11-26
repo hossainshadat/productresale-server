@@ -1,9 +1,10 @@
 [
   {
-    "category_id": "01",
+    "brandName": "acer",
+    "category_id": "638177029a0aa9ab48b0c3eb",
     "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
-    "title": "Build Responsive Real-World Websites with HTML and CSS",
-    "location": { "number": 4.5, "badge": "Excellent" },
+    "title": "Apple MacBook Pro 13.3 A1425 ME662LL/A i5 2.6GHz 8GB RAM 256GB SSD 2013 Works READ",
+    "location": "cumilla",
     "resalePrice": 10,
     "originalPrice": 488,
     "yearsOfUse": 3,
@@ -11,10 +12,11 @@
     "post_date": "11/26/2022"
   },
   {
-    "category_id": "02",
+    "brandName": "apple",
+    "category_id": "638177029a0aa9ab48b0c3ea",
     "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
-    "title": "Build Responsive Real-World Websites with HTML and CSS",
-    "location": { "number": 4.5, "badge": "Excellent" },
+    "title": "Apple MacBook Pro 13.3 A1425 ME662LL/A i5 2.6GHz 8GB RAM 256GB SSD 2013 Works READ",
+    "location": "dhaka",
     "resalePrice": 10,
     "originalPrice": 488,
     "yearsOfUse": 4,
@@ -23,10 +25,11 @@
   },
 
   {
-    "category_id": "03",
+    "brandName": "Dell",
+    "category_id": "638177029a0aa9ab48b0c3ec",
     "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
-    "title": "Build Responsive Real-World Websites with HTML and CSS",
-    "location": { "number": 4.5, "badge": "Excellent" },
+    "title": "Apple MacBook Pro 13.3 A1425 ME662LL/A i5 2.6GHz 8GB RAM 256GB SSD 2013 Works READ",
+    "location": "Chittagong",
     "resalePrice": 10,
     "originalPrice": 488,
     "yearsOfUse": 2,
@@ -34,10 +37,11 @@
     "post_date": "11/23/2022"
   },
   {
-    "category_id": "01",
+    "brandName": "acer",
+    "category_id": "638177029a0aa9ab48b0c3eb",
     "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
-    "title": "Build Responsive Real-World Websites with HTML and CSS",
-    "location": { "number": 4.5, "badge": "Excellent" },
+    "title": "Apple MacBook Pro 13.3 A1425 ME662LL/A i5 2.6GHz 8GB RAM 256GB SSD 2013 Works READ",
+    "location": "Barisal",
     "resalePrice": 10,
     "originalPrice": 488,
     "yearsOfUse": 1,
@@ -46,10 +50,11 @@
   },
 
   {
-    "category_id": "02",
+    "brandName": "apple",
+    "category_id": "638177029a0aa9ab48b0c3ea",
     "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
-    "title": "Build Responsive Real-World Websites with HTML and CSS",
-    "location": { "number": 4.5, "badge": "Excellent" },
+    "title": "Apple MacBook Pro 13.3 A1425 ME662LL/A i5 2.6GHz 8GB RAM 256GB SSD 2013 Works READ",
+    "location": "Rangpur",
     "resalePrice": 10,
     "originalPrice": 488,
     "yearsOfUse": 5,
@@ -58,10 +63,11 @@
   },
 
   {
-    "category_id": "03",
+    "brandName": "Dell",
+    "category_id": "638177029a0aa9ab48b0c3ec",
     "image_url": "https://i.ytimg.com/vi/kMT54MPz9oE/maxresdefault.jpg",
-    "title": "Build Responsive Real-World Websites with HTML and CSS",
-    "location": { "number": 4.5, "badge": "Excellent" },
+    "title": "Apple MacBook Pro 13.3 A1425 ME662LL/A i5 2.6GHz 8GB RAM 256GB SSD 2013 Works READ",
+    "location": "chandpur",
     "resalePrice": 10,
     "originalPrice": 488,
     "yearsOfUse": 2.5,
