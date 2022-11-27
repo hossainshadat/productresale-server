@@ -34,6 +34,7 @@ dbConnect();
 
 const Category = client.db("resaleStore").collection("category");
 const ProductCategory = client.db("resaleStore").collection("productCategory");
+const ProductBooking = client.db("resaleStore").collection("ProductBooking");
 
 // Home category
 
@@ -79,6 +80,46 @@ app.get("/productcategory", async (req, res) => {
       success: true,
       message: "Successfully get the Data",
       data: categoryProduct,
+    });
+  } catch (error) {
+    res.send({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+// Product Booking
+
+app.get("/booking", async (req, res) => {
+  try {
+    const query = {
+      email: req.query.email,
+    };
+    const cursor = ProductBooking.find(query);
+    const productBooked = await cursor.toArray();
+
+    res.send({
+      success: true,
+      message: "Successfully get the Data",
+      data: productBooked,
+    });
+  } catch (error) {
+    res.send({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+app.post("/booking", async (req, res) => {
+  try {
+    const booking = req.body;
+    const booked = await ProductBooking.insertOne(booking);
+
+    res.send({
+      success: true,
+      message: "Successfully add the Data",
+      data: booked,
     });
   } catch (error) {
     res.send({
