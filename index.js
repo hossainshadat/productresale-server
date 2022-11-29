@@ -89,6 +89,26 @@ app.get("/productcategory", async (req, res) => {
   }
 });
 
+// productCategory post
+
+app.post("/productcategory", async (req, res) => {
+  try {
+    const prodCate = req.body;
+    const cateItem = await ProductCategory.insertOne(prodCate);
+
+    res.send({
+      success: true,
+      message: "Successfully add the Data",
+      data: cateItem,
+    });
+  } catch (error) {
+    res.send({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
 // Product Booking
 
 app.get("/booking", async (req, res) => {
