@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const { MongoClient, ServerApiVersion } = require("mongodb");
+const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const cors = require("cors");
 const port = process.env.PORT || 5000;
 require("dotenv").config();
@@ -35,6 +35,9 @@ dbConnect();
 const Category = client.db("resaleStore").collection("category");
 const ProductCategory = client.db("resaleStore").collection("productCategory");
 const ProductBooking = client.db("resaleStore").collection("ProductBooking");
+const advertiseProducts = client
+  .db("resaleStore")
+  .collection("advertiseProducts");
 
 // Home category
 
@@ -60,19 +63,19 @@ app.get("/category", async (req, res) => {
 
 app.get("/productcategory", async (req, res) => {
   try {
-    const query = {
-      category_id: req.query.category_id,
-    };
-    // let query = {};
-    // if (req.query.id) {
-    //   query = {
-    //     category_id: req.query.id,
-    //   };
-    // } else {
-    //   query = {
-    //     category_id: req.query.category_id,
-    //   };
-    // }
+    // const query = {
+    //   category_id: req.query.category_id,
+    // };
+    let query = {};
+    if (req.query.email) {
+      query = {
+        email: req.query.email,
+      };
+    } else {
+      query = {
+        category_id: req.query.category_id,
+      };
+    }
     const cursor = ProductCategory.find(query);
     const categoryProduct = await cursor.toArray();
 
@@ -101,6 +104,35 @@ app.post("/productcategory", async (req, res) => {
       message: "Successfully add the Data",
       data: cateItem,
     });
+  } catch (error) {
+    res.send({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+// productCategory Delete
+app.delete("/productcategory/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  try {
+    const productInfo = await ProductCategory.findOne({ _id: ObjectId(id) });
+
+    if (!productInfo?._id) {
+      res.send({
+        success: false,
+        error: "Product doesn't exist",
+      });
+      return;
+    }
+    const result = await ProductCategory.deleteOne({ _id: ObjectId(id) });
+
+    if (result.deletedCount) {
+      res.send({
+        success: true,
+        message: "Successfully deleted the Product",
+      });
+    }
   } catch (error) {
     res.send({
       success: false,
@@ -140,6 +172,44 @@ app.post("/booking", async (req, res) => {
       success: true,
       message: "Successfully add the Data",
       data: booked,
+    });
+  } catch (error) {
+    res.send({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+/// product Advertise
+
+app.post("/advertise", async (req, res) => {
+  try {
+    const advertise = req.body;
+    const advertiseItem = await advertiseProducts.insertOne(advertise);
+
+    res.send({
+      success: true,
+      message: "Successfully add the Data",
+      data: advertiseItem,
+    });
+  } catch (error) {
+    res.send({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+app.get("/advertise", async (req, res) => {
+  try {
+    const cursor = advertiseProducts.find({});
+    const advertiseItem = await cursor.toArray();
+
+    res.send({
+      success: true,
+      message: "Successfully get the Data",
+      data: advertiseItem,
     });
   } catch (error) {
     res.send({
