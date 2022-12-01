@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
   res.send("Resale product server is running");
 });
 
-const uri = `mongodb+srv://${process.env.DBID}:${process.env.DBPASS}@cluster0.xovey.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.xovey.mongodb.net/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -32,12 +32,87 @@ async function dbConnect() {
 
 dbConnect();
 
+const Users = client.db("resaleStore").collection("users");
 const Category = client.db("resaleStore").collection("category");
 const ProductCategory = client.db("resaleStore").collection("productCategory");
 const ProductBooking = client.db("resaleStore").collection("ProductBooking");
 const advertiseProducts = client
   .db("resaleStore")
   .collection("advertiseProducts");
+
+/// Users
+
+app.post("/users", async (req, res) => {
+  try {
+    const user = req.body;
+    const users = await Users.insertOne(user);
+
+    res.send({
+      success: true,
+      message: "Successfully add the Data",
+      data: users,
+    });
+  } catch (error) {
+    res.send({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+// app.put("/users", async (req, res) => {
+//   try {
+//     const cursor = Users.find(query);
+//     let query = {};
+//     if (email) {
+//       query = {
+//         email:email,
+//       };
+//     }
+//     const user = req.body;
+//     const filter = { email: query.email };
+//     const options = { upsert: true };
+//     const updateDoc = {
+//       $set: user,
+//     };
+//     const result = await Users.updateOne(filter, updateDoc, options);
+
+//     res.send({
+//       success: true,
+//       message: "Successfully add the Data",
+//       data: result,
+//     });
+//   } catch (error) {
+//     res.send({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// });
+
+app.get("/users", async (req, res) => {
+  try {
+    let query = {};
+    if (req.query.email) {
+      query = {
+        email: req.query.email,
+      };
+    }
+    const cursor = Users.find(query);
+    const user = await cursor.toArray();
+
+    res.send({
+      success: true,
+      message: "Successfully get the Data",
+      data: user,
+    });
+  } catch (error) {
+    res.send({
+      success: false,
+      message: error.message,
+    });
+  }
+});
 
 // Home category
 
