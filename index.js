@@ -4,6 +4,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const cors = require("cors");
 const port = process.env.PORT || 5000;
 require("dotenv").config();
+const jwt = require("jsonwebtoken");
 
 // middleware
 app.use(cors());
@@ -42,45 +43,15 @@ const advertiseProducts = client
 
 /// Users
 
-app.post("/users", async (req, res) => {
-  try {
-    const user = req.body;
-    const users = await Users.insertOne(user);
-
-    res.send({
-      success: true,
-      message: "Successfully add the Data",
-      data: users,
-    });
-  } catch (error) {
-    res.send({
-      success: false,
-      message: error.message,
-    });
-  }
-});
-
-// app.put("/users", async (req, res) => {
+// app.post("/users", async (req, res) => {
 //   try {
-//     const cursor = Users.find(query);
-//     let query = {};
-//     if (email) {
-//       query = {
-//         email:email,
-//       };
-//     }
 //     const user = req.body;
-//     const filter = { email: query.email };
-//     const options = { upsert: true };
-//     const updateDoc = {
-//       $set: user,
-//     };
-//     const result = await Users.updateOne(filter, updateDoc, options);
+//     const users = await Users.insertOne(user);
 
 //     res.send({
 //       success: true,
 //       message: "Successfully add the Data",
-//       data: result,
+//       data: users,
 //     });
 //   } catch (error) {
 //     res.send({
@@ -89,6 +60,32 @@ app.post("/users", async (req, res) => {
 //     });
 //   }
 // });
+
+app.put("/users/:email", async (req, res) => {
+  try {
+    const email = req.params.email;
+    const user = req.body;
+    const filter = { email: email };
+    const options = { upsert: true };
+    const updateDoc = {
+      $set: user,
+    };
+    const result = await Users.updateOne(filter, updateDoc, options);
+
+    console.log(result);
+
+    res.send({
+      success: true,
+      message: "Successfully add the Data",
+      data: result,
+    });
+  } catch (error) {
+    res.send({
+      success: false,
+      message: error.message,
+    });
+  }
+});
 
 app.get("/users", async (req, res) => {
   try {
@@ -110,6 +107,35 @@ app.get("/users", async (req, res) => {
     res.send({
       success: false,
       message: error.message,
+    });
+  }
+});
+
+// delete user
+app.delete("/users/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await Users.findOne({ _id: ObjectId(id) });
+
+    if (!user?._id) {
+      res.send({
+        success: false,
+        error: "User doesn't exist",
+      });
+      return;
+    }
+    const result = await Users.deleteOne({ _id: ObjectId(id) });
+
+    if (result.deletedCount) {
+      res.send({
+        success: true,
+        message: "Successfully deleted the User",
+      });
+    }
+  } catch (error) {
+    res.send({
+      success: false,
+      message: "error.message",
     });
   }
 });
